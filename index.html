@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Trips That Matter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body style="font-family: Arial; max-width: 600px; margin: auto; padding: 20px;">
+
+<h1>Trips That Matter</h1>
+
+<p>Design a transformational travel experience.</p>
+
+<input id="destination" placeholder="Destination" style="width:100%; padding:10px;"><br><br>
+
+<input id="duration" placeholder="Duration (example: 10 days)" style="width:100%; padding:10px;"><br><br>
+
+<button onclick="generate()" style="padding:12px; font-size:16px;">
+Design My Journey
+</button>
+
+<pre id="result" style="white-space: pre-wrap; margin-top:20px;"></pre>
+
+<script>
+async function generate(){
+    document.getElementById("result").innerText = "Designing your transformational journey...";
+
+    const response = await fetch("/api/generate",{
+        method:"POST",
+        headers:{ "Content-Type": "application/json" },
+        body:JSON.stringify({
+            destination: document.getElementById("destination").value,
+            duration: document.getElementById("duration").value
+        })
+    });
+
+    const data = await response.json();
+    document.getElementById("result").innerText = data.result;
+}
+</script>
+
+</body>
+</html>
