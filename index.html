@@ -1,25 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Trips That Matter</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trips That Matter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body style="font-family: Arial; max-width: 600px; margin: auto; padding: 20px;">
+<body style="font-family: Arial, sans-serif; background-color:#F9FAFB; color:#111827; margin:0; padding:0;">
 
-<h1>Trips That Matter</h1>
+<div style="max-width:600px; margin:auto; padding:40px 20px; text-align:center;">
 
-<p>Design a transformational travel experience.</p>
+    <!-- Logo (optional) -->
+    <img src="logo.png" alt="Trips That Matter Logo" style="width:120px; margin-bottom:20px;">
 
-<input id="destination" placeholder="Destination" style="width:100%; padding:10px;"><br><br>
+    <!-- Header / Mission -->
+    <h1 style="font-size:36px; color:#1E3A8A; margin-bottom:12px;">Trips That Matter</h1>
+    <p style="font-size:18px; color:#374151; max-width:500px; margin:auto 0 24px;">
+        Travel with purpose. Explore the world. Connect with cultures. Transform yourself and others through meaningful journeys.
+    </p>
 
-<input id="duration" placeholder="Duration (example: 10 days)" style="width:100%; padding:10px;"><br><br>
+    <!-- Inputs -->
+    <input id="destination" placeholder="Destination" 
+           style="width:100%; padding:14px; border-radius:8px; border:1px solid #CBD5E1; margin-bottom:12px;">
+    
+    <input id="duration" placeholder="Duration (example: 10 days)" 
+           style="width:100%; padding:14px; border-radius:8px; border:1px solid #CBD5E1; margin-bottom:12px;">
 
-<button onclick="generate()" style="padding:12px; font-size:16px;">
-Design My Journey
-</button>
+    <!-- Button -->
+    <button onclick="generate()" 
+            style="width:100%; padding:16px; background-color:#1E3A8A; color:white; font-size:18px; border:none; border-radius:8px; cursor:pointer;">
+        Design My Journey
+    </button>
 
-<pre id="result" style="white-space: pre-wrap; margin-top:20px;"></pre>
+    <!-- AI Output -->
+    <pre id="result" style="white-space: pre-wrap; margin-top:20px; padding:16px; border-radius:8px; background-color:#F1F5F9; color:#111827;"></pre>
+
+</div>
+
+<!-- Footer -->
+<footer style="text-align:center; margin-top:40px; font-size:14px; color:#6B7280;">
+    © 2026 Trips That Matter | Travel to understand, connect, and transform
+</footer>
 
 <script>
 async function generate(){
