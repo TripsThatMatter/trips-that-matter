@@ -1,192 +1,225 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Trips That Matter</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="/favicon.png">
+<title>Trips That Matter</title>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/favicon.png">
 
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8fafc;
-      margin: 0;
-      padding: 0;
-      color: #0f172a;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      text-align: center;
-    }
+<style>
 
-    .logo {
-      width: 120px;
-      margin-bottom: 20px;
-    }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f1f5f9;
+  margin: 0;
+  padding: 0;
+  color: #0f172a;
+}
 
-    h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
 
-    .subtitle {
-      font-size: 18px;
-      color: #475569;
-      max-width: 650px;
-      margin: 0 auto 40px auto;
-      line-height: 1.6;
-    }
+.logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
 
-    .form-box {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      text-align: left;
-    }
+h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
 
-    label {
-      font-weight: 600;
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 5px;
-    }
+.subtitle {
+  font-size: 18px;
+  color: #475569;
+  max-width: 650px;
+  margin: auto;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
 
-    input, select {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #cbd5e1;
-      font-size: 16px;
-    }
+.form-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  text-align: left;
+}
 
-    button {
-      margin-top: 25px;
-      width: 100%;
-      padding: 14px;
-      font-size: 18px;
-      background: #1e3a8a;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+label {
+  font-weight: 600;
+  margin-top: 15px;
+  display: block;
+}
 
-    button:hover {
-      background: #1e40af;
-    }
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+}
 
-    .result {
-      margin-top: 30px;
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      white-space: pre-wrap;
-    }
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
 
-    .footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #64748b;
-      text-align: center;
-    }
+.primary-btn {
+  background: #1e3a8a;
+  color: white;
+}
 
-  </style>
+.primary-btn:hover {
+  background: #1e40af;
+}
+
+.unlock-btn {
+  background: #0f172a;
+  color: white;
+  display: none;
+}
+
+.result {
+  margin-top: 30px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+.footer {
+  margin-top: 40px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+</style>
+
 </head>
-
 <body>
 
 <div class="container">
 
-  <img src="/logo.png" class="logo">
+<img src="/logo.png" class="logo">
 
-  <h1>Trips That Matter</h1>
+<h1>Trips That Matter</h1>
 
-  <p class="subtitle">
-    Travel with purpose. Explore the world. Connect with cultures. Transform yourself and others through meaningful journeys.
-  </p>
+<p class="subtitle">
+Travel with purpose. Explore the world. Connect with cultures. Transform yourself and others through meaningful journeys.
+</p>
 
-  <div class="form-box">
+<div class="form-box">
 
-    <label>Where do you want to go?</label>
-    <input id="destination" placeholder="Example: Peru, Japan, Kenya">
+<label>Destination</label>
+<input id="destination" placeholder="Peru, Japan, Kenya, etc">
 
-    <label>Trip length</label>
-    <select id="duration">
-      <option>3-5 days</option>
-      <option>7 days</option>
-      <option>10 days</option>
-      <option>2 weeks</option>
-      <option>3+ weeks</option>
-    </select>
+<label>Trip length</label>
+<select id="duration">
+<option>3-5 days</option>
+<option>7 days</option>
+<option>10 days</option>
+<option>2 weeks</option>
+<option>3+ weeks</option>
+</select>
 
-    <label>Budget per person (USD)</label>
-    <input id="budget" placeholder="Example: 3000">
+<label>Budget per person (USD)</label>
+<input id="budget" placeholder="3000">
 
-    <label>What kind of experience do you want?</label>
-    <select id="style">
-      <option>Cultural immersion</option>
-      <option>Spiritual / transformational</option>
-      <option>Adventure</option>
-      <option>Service / humanitarian</option>
-      <option>Luxury with purpose</option>
-    </select>
+<label>Experience type</label>
+<select id="style">
+<option>Cultural immersion</option>
+<option>Spiritual / transformational</option>
+<option>Adventure</option>
+<option>Humanitarian / service</option>
+<option>Luxury with purpose</option>
+</select>
 
-    <label>What do you want to transform in yourself?</label>
-    <input id="purpose" placeholder="Example: Find clarity, heal, grow, reconnect">
+<label>Your personal intention</label>
+<input id="purpose" placeholder="Healing, clarity, growth, connection, etc">
 
-    <label>Travel pace</label>
-    <select id="pace">
-      <option>Slow and immersive</option>
-      <option>Balanced</option>
-      <option>Fast-paced</option>
-    </select>
+<label>Travel pace</label>
+<select id="pace">
+<option>Slow and immersive</option>
+<option>Balanced</option>
+<option>Fast-paced</option>
+</select>
 
-    <button onclick="generateTrip()">Design My Transformational Journey</button>
+<button class="primary-btn" onclick="generateTrip()">
+Preview My Transformational Journey
+</button>
 
-  </div>
+<button id="unlockBtn" class="unlock-btn" onclick="unlockFullPlan()">
+Unlock Full Transformational Plan — $19
+</button>
 
-  <div id="result" class="result" style="display:none;"></div>
+</div>
 
-  <div class="footer">
-    © Trips That Matter — Travel that transforms lives.
-  </div>
+<div id="result" class="result" style="display:none;"></div>
+
+<div class="footer">
+© Trips That Matter — Travel that transforms lives.
+</div>
 
 </div>
 
 <script>
 
+let fullItinerary = "";
+
 async function generateTrip() {
 
-  const resultDiv = document.getElementById("result");
-  resultDiv.style.display = "block";
-  resultDiv.innerHTML = "Designing your transformational journey...";
+const resultDiv = document.getElementById("result");
 
-  const data = {
-    destination: document.getElementById("destination").value,
-    duration: document.getElementById("duration").value,
-    budget: document.getElementById("budget").value,
-    style: document.getElementById("style").value,
-    purpose: document.getElementById("purpose").value,
-    pace: document.getElementById("pace").value
-  };
+resultDiv.style.display = "block";
+resultDiv.innerHTML = "Designing your transformational journey...";
 
-  const response = await fetch("/api/generate", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(data)
-  });
+const data = {
 
-  const result = await response.json();
+destination: document.getElementById("destination").value,
+duration: document.getElementById("duration").value,
+budget: document.getElementById("budget").value,
+style: document.getElementById("style").value,
+purpose: document.getElementById("purpose").value,
+pace: document.getElementById("pace").value
 
-  resultDiv.innerHTML = result.itinerary;
+};
+
+const response = await fetch("/api/generate", {
+
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify(data)
+
+});
+
+const result = await response.json();
+
+fullItinerary = result.itinerary;
+
+resultDiv.innerHTML = fullItinerary.substring(0, 600) + "...";
+
+document.getElementById("unlockBtn").style.display = "block";
+
+}
+
+function unlockFullPlan() {
+
+window.location.href = "/checkout.html";
 
 }
 
