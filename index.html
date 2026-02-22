@@ -95,17 +95,32 @@ button {
 .result {
   margin-top: 30px;
   background: white;
-  padding: 25px;
+  padding: 30px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-  white-space: pre-wrap;
   text-align: left;
+  line-height: 1.7;
+}
+
+.result h2 {
+  margin-top: 25px;
+  color: #1e3a8a;
+}
+
+.result h3 {
+  margin-top: 20px;
+  color: #0f172a;
 }
 
 .footer {
   margin-top: 40px;
   color: #64748b;
   font-size: 14px;
+}
+
+.loading {
+  color: #1e3a8a;
+  font-weight: 600;
 }
 
 </style>
@@ -164,7 +179,7 @@ Preview My Transformational Journey
 </button>
 
 <button id="unlockBtn" class="unlock-btn" onclick="unlockFullPlan()">
-Unlock Full Transformational Plan — $19
+Unlock Full Transformational Plan
 </button>
 
 </div>
@@ -184,8 +199,9 @@ let fullItinerary = "";
 function formatItinerary(text) {
 
   return text
-    .replace(/### (.*)/g, "<h3>$1</h3>")
-    .replace(/## (.*)/g, "<h2>$1</h2>")
+    .replace(/^### (.*$)/gim, "<h3>$1</h3>")
+    .replace(/^## (.*$)/gim, "<h2>$1</h2>")
+    .replace(/^# (.*$)/gim, "<h2>$1</h2>")
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
     .replace(/\n\n/g, "<br><br>")
     .replace(/\n/g, "<br>");
@@ -197,7 +213,8 @@ async function generateTrip() {
   const resultDiv = document.getElementById("result");
 
   resultDiv.style.display = "block";
-  resultDiv.innerHTML = "Designing your transformational journey...";
+
+  resultDiv.innerHTML = "<div class='loading'>Designing your transformational journey...</div>";
 
   const data = {
 
