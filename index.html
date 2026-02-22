@@ -1,62 +1,195 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Trips That Matter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trips That Matter</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon.png">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      padding: 0;
+      color: #0f172a;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      color: #475569;
+      max-width: 650px;
+      margin: 0 auto 40px auto;
+      line-height: 1.6;
+    }
+
+    .form-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      text-align: left;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 14px;
+      font-size: 18px;
+      background: #1e3a8a;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1e40af;
+    }
+
+    .result {
+      margin-top: 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      white-space: pre-wrap;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #64748b;
+      text-align: center;
+    }
+
+  </style>
 </head>
 
-<body style="font-family: Arial, sans-serif; background-color:#F9FAFB; color:#111827; margin:0; padding:0;">
+<body>
 
-<div style="max-width:600px; margin:auto; padding:40px 20px; text-align:center;">
+<div class="container">
 
-    <!-- Logo (optional) -->
-    <img src="logo.png" alt="Trips That Matter Logo" style="width:120px; margin-bottom:20px;">
+  <img src="/logo.png" class="logo">
 
-    <!-- Header / Mission -->
-    <h1 style="font-size:36px; color:#1E3A8A; margin-bottom:12px;">Trips That Matter</h1>
-    <p style="text-align: center; max-width: 700px; margin: 0 auto; font-size: 18px;">
-Travel with purpose. Explore the world. Connect with cultures. Transform yourself and others through meaningful journeys.
-</p>
+  <h1>Trips That Matter</h1>
 
-    <!-- Inputs -->
-    <input id="destination" placeholder="Destination" 
-           style="width:100%; padding:14px; border-radius:8px; border:1px solid #CBD5E1; margin-bottom:12px;">
-    
-    <input id="duration" placeholder="Duration (example: 10 days)" 
-           style="width:100%; padding:14px; border-radius:8px; border:1px solid #CBD5E1; margin-bottom:12px;">
+  <p class="subtitle">
+    Travel with purpose. Explore the world. Connect with cultures. Transform yourself and others through meaningful journeys.
+  </p>
 
-    <!-- Button -->
-    <button onclick="generate()" 
-            style="width:100%; padding:16px; background-color:#1E3A8A; color:white; font-size:18px; border:none; border-radius:8px; cursor:pointer;">
-        Design My Journey
-    </button>
+  <div class="form-box">
 
-    <!-- AI Output -->
-    <pre id="result" style="white-space: pre-wrap; margin-top:20px; padding:16px; border-radius:8px; background-color:#F1F5F9; color:#111827;"></pre>
+    <label>Where do you want to go?</label>
+    <input id="destination" placeholder="Example: Peru, Japan, Kenya">
+
+    <label>Trip length</label>
+    <select id="duration">
+      <option>3-5 days</option>
+      <option>7 days</option>
+      <option>10 days</option>
+      <option>2 weeks</option>
+      <option>3+ weeks</option>
+    </select>
+
+    <label>Budget per person (USD)</label>
+    <input id="budget" placeholder="Example: 3000">
+
+    <label>What kind of experience do you want?</label>
+    <select id="style">
+      <option>Cultural immersion</option>
+      <option>Spiritual / transformational</option>
+      <option>Adventure</option>
+      <option>Service / humanitarian</option>
+      <option>Luxury with purpose</option>
+    </select>
+
+    <label>What do you want to transform in yourself?</label>
+    <input id="purpose" placeholder="Example: Find clarity, heal, grow, reconnect">
+
+    <label>Travel pace</label>
+    <select id="pace">
+      <option>Slow and immersive</option>
+      <option>Balanced</option>
+      <option>Fast-paced</option>
+    </select>
+
+    <button onclick="generateTrip()">Design My Transformational Journey</button>
+
+  </div>
+
+  <div id="result" class="result" style="display:none;"></div>
+
+  <div class="footer">
+    © Trips That Matter — Travel that transforms lives.
+  </div>
 
 </div>
 
-<!-- Footer -->
-<footer style="text-align:center; margin-top:40px; font-size:14px; color:#6B7280;">
-    © 2026 Trips That Matter | Travel to understand, connect, and transform
-</footer>
-
 <script>
-async function generate(){
-    document.getElementById("result").innerText = "Designing your transformational journey...";
 
-    const response = await fetch("/api/generate",{
-        method:"POST",
-        headers:{ "Content-Type": "application/json" },
-        body:JSON.stringify({
-            destination: document.getElementById("destination").value,
-            duration: document.getElementById("duration").value
-        })
-    });
+async function generateTrip() {
 
-    const data = await response.json();
-    document.getElementById("result").innerText = data.result;
+  const resultDiv = document.getElementById("result");
+  resultDiv.style.display = "block";
+  resultDiv.innerHTML = "Designing your transformational journey...";
+
+  const data = {
+    destination: document.getElementById("destination").value,
+    duration: document.getElementById("duration").value,
+    budget: document.getElementById("budget").value,
+    style: document.getElementById("style").value,
+    purpose: document.getElementById("purpose").value,
+    pace: document.getElementById("pace").value
+  };
+
+  const response = await fetch("/api/generate", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(data)
+  });
+
+  const result = await response.json();
+
+  resultDiv.innerHTML = result.itinerary;
+
 }
+
 </script>
 
 </body>
